@@ -1,23 +1,23 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
-
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { Container, Row, Col, Card } from "react-bootstrap"
-
-const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
+import { Container, Row, Col, Card, } from "react-bootstrap"
+import Faq from "../components/faq.js"
 
 const IndexPage = ({data}) => (
   <Layout>
+
     <Container>
-      <Row className="g-4">
+
+      <Row className="g-4 m-4">
         {data.tattoos.edges.map(({node}) => (
           <Col lg={4} xs={6} key={node.id}>
             <Card>
               <GatsbyImage
                   image={getImage(node.frontmatter.featured_image)}
-                  alt={node.frontmatter.tattooMotive}
+                  alt={node.frontmatter.title}
                   className= "card-img-top"
                 />
                 <Card.Body>
@@ -33,6 +33,10 @@ const IndexPage = ({data}) => (
           </Col>
         ))}
       </Row>
+      <Row className="m-4">
+        <Faq />
+      </Row>
+     
 
       
     </Container>
@@ -50,16 +54,7 @@ export default IndexPage
 
 export const query = graphql`
   query {
-    fileInformation: allFile {
-      edges {
-        node {
-          id
-          base
-          prettySize
-        }
-      }
-    }
-    tattoos: allMarkdownRemark {
+    tattoos: allMarkdownRemark (filter: { frontmatter: {date: { ne: null} } } ) {
       edges {
         node {
           id
