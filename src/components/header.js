@@ -1,11 +1,9 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { Container, Navbar, Nav, Offcanvas } from 'react-bootstrap'
-import LanguageSelect from "./languageSelect"
 
 const Header = ({ siteTitle }) => (
   <div>
-    <LanguageSelect/>
       {['md'].map((expand) => (
         <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3">
           <Container fluid>
