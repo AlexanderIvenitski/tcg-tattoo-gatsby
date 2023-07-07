@@ -18,7 +18,7 @@ const IndexPage = ({data}) => (
           ))}
       </ul>
 
-      <Row>
+      <Row className="g-4">
         {data.tattoos.edges.map(({node}) => (
           <Col lg={4} xs={6} key={node.id}>
             <Card>
