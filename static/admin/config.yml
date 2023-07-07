@@ -13,7 +13,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields: 
-      - { label: "Tattoo Motive", name: "tattooMotive", widget: "string" }
+      - { label: "Tattoo Motive", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "string" }
       - { label: "Featured Image", name: "featured-image", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }

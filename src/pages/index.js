@@ -29,7 +29,7 @@ const IndexPage = ({data}) => (
                 />
                 <Card.Body>
                   <Card.Title>
-                    {node.frontmatter.tattooMotive}
+                    {node.frontmatter.title}
                   </Card.Title>
                   <p>
                     {node.frontmatter.date}
@@ -73,7 +73,7 @@ export const query = graphql`
           frontmatter {
             title
             date
-            tattooMotive
+            title
             featured_image {
               childImageSharp {
                 gatsbyImageData(width: 600, aspectRatio: 1)
