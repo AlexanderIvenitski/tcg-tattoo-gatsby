@@ -11,13 +11,6 @@ const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=de
 const IndexPage = ({data}) => (
   <Layout>
     <Container>
-      <h1>Netlify CMS & Gatsby</h1>
-      <ul>
-          {data.fileInformation.edges.map(({node}) => (
-          <li key={node.base}>{node.base} | {node.prettySize}</li>
-          ))}
-      </ul>
-
       <Row className="g-4">
         {data.tattoos.edges.map(({node}) => (
           <Col lg={4} xs={6} key={node.id}>
