@@ -2,7 +2,6 @@ import React from 'react';
 import { Row, Accordion} from 'react-bootstrap';
 
 
-
 const Faq = ({data}) => (
     <Row>
         <Accordion>
@@ -17,4 +16,3 @@ const Faq = ({data}) => (
 )
 
 export default Faq;
-

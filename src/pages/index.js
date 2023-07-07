@@ -54,6 +54,7 @@ export default IndexPage
 
 export const query = graphql`
   query {
+
     tattoos: allMarkdownRemark (filter: { frontmatter: {date: { ne: null} } } ) {
       edges {
         node {
