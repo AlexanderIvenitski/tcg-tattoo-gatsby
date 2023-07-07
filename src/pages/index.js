@@ -1,16 +1,48 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { graphql } from "gatsby"
+import { getImage, GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-
+import { Container, Row, Col, Card } from "react-bootstrap"
 
 const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
 
-const IndexPage = () => (
+const IndexPage = ({data}) => (
   <Layout>
-    Hello World!
+    <Container>
+      <h1>Netlify CMS & Gatsby</h1>
+      <ul>
+          {data.fileInformation.edges.map(({node}) => (
+          <li key={node.base}>{node.base} | {node.prettySize}</li>
+          ))}
+      </ul>
+
+      <Row>
+        {data.tattoos.edges.map(({node}) => (
+          <Col lg={4} xs={6} key={node.id}>
+            <Card>
+              <GatsbyImage
+                  image={getImage(node.frontmatter.featured_image)}
+                  alt={node.frontmatter.tattooMotive}
+                  className= "card-img-top"
+                />
+                <Card.Body>
+                  <Card.Title>
+                    {node.frontmatter.tattooMotive}
+                  </Card.Title>
+                  <p>
+                    {node.frontmatter.date}
+                  </p>
+                </Card.Body>
+            </Card>
+            
+          </Col>
+        ))}
+      </Row>
+
+      
+    </Container>
   </Layout>
 )
 
@@ -22,3 +54,34 @@ const IndexPage = () => (
 export const Head = () => <Seo title="Home" />
 
 export default IndexPage
+
+export const query = graphql`
+  query {
+    fileInformation: allFile {
+      edges {
+        node {
+          id
+          base
+          prettySize
+        }
+      }
+    }
+    tattoos: allMarkdownRemark {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date
+            tattooMotive
+            featured_image {
+              childImageSharp {
+                gatsbyImageData(width: 600, aspectRatio: 1)
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
