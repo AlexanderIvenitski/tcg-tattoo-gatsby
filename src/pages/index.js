@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { Container, Row, Col, Card, } from "react-bootstrap"
 import Faq from "../components/faq.js"
+import ImageSlider from "../components/imageSlider"
 
 const IndexPage = ({data}) => (
   <Layout>
@@ -35,6 +36,9 @@ const IndexPage = ({data}) => (
       </Row>
       <Row className="m-4">
         <Faq />
+      </Row>
+      <Row className="m-4">
+        <ImageSlider />
       </Row>
      
 
