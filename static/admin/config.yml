@@ -16,16 +16,15 @@ collections:
       - { label: "Tattoo Motive", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "string" }
       - { label: "Featured Image", name: "featured-image", widget: "image" }
-      
-      
-collections:
- - name: "faq"
-   preview: flase
-   label: FAQ
-   folfer: "content/faq"
-   create: true
-   slug: "{{slug}}"
-   fields:
+
+  - name: "faq"
+    preview: flase
+    label: FAQ
+    folder: "content/faq"
+    create: true
+    slug: "{{slug}}"
+    fields:
       - { label: "Frage", name: "title", widget: "string" }
 
       - { label: "Antwort", name: "body", widget: "markdown" }
+
