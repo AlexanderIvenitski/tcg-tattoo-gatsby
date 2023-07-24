@@ -5,11 +5,13 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { Container, Row, Col, Card, } from "react-bootstrap"
 import Faq from "../components/faq.js"
+import Hero from "../components/hero"
 
 const IndexPage = ({data}) => (
   <Layout>
 
     <Container>
+      <Hero />
 
       <Row className="g-4 m-4">
         {data.tattoos.edges.map(({node}) => (
